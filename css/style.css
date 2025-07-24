@@ -103,9 +103,12 @@ footer a:hover {
 }
 
 /* ====== Imagem de Produto ====== */
-#produto-imagem {
-  max-width: 100%;
+.produto-imagem {
+  width: 100%;
+  max-width: 400px;
   height: auto;
+  margin: 0 auto;
+  display: block;
   border-radius: 20px;
 }
 
