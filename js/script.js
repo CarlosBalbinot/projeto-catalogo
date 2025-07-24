@@ -89,7 +89,7 @@ function carregarCarrinho() {
   let resumo = '';
   carrinho.forEach((item, index) => {
     const col = document.createElement('div');
-    col.className = 'col-md-4';
+    col.className = 'col-12 col-sm-6 col-md-4';
     col.innerHTML = `
       <div class="card h-100 rounded-4">
         <img src="${item.imagem}" class="card-img-top" alt="${item.nome}" style="height:300px; object-fit:cover;">
