@@ -36,12 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // === Página de Carrinho ===
-  const listaCarrinhoEl = document.getElementById('lista-carrinho');
-  if (listaCarrinhoEl) {
+  if (document.getElementById('lista-carrinho')) {
     carregarCarrinho();
   }
 
-  // === CPF/CNPJ ===
+  // === CPF/CNPJ Toggle ===
   const tipoPessoaEl = document.getElementById('tipoPessoa');
   if (tipoPessoaEl) {
     const campoCpfEl = document.getElementById('campoCpf');
@@ -53,34 +52,32 @@ document.addEventListener('DOMContentLoaded', () => {
       if (tipoPessoaEl.value === 'cnpj') campoCnpjEl.classList.remove('d-none');
     });
   }
+
+  // === Atualiza contador ao carregar ===
+  atualizarContadorCarrinho();
 });
 
-// === Funções ===
+// === Funções Globais ===
 
 function adicionarAoCarrinho(produto) {
-  const item = {
-    nome: produto.nome,
-    imagem: produto.imagem,
-    desc: produto.desc
-  };
-
-  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  carrinho.push(item);
-  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  carrinho.push(produto);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  atualizarContadorCarrinho();
 }
 
 function removerDoCarrinho(index) {
-  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   carrinho.splice(index, 1);
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
   carregarCarrinho();
+  atualizarContadorCarrinho();
 }
 
 function carregarCarrinho() {
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   const lista = document.getElementById('lista-carrinho');
   const inputProdutos = document.getElementById('input-produtos');
-
   lista.innerHTML = '';
 
   if (carrinho.length === 0) {
@@ -117,7 +114,6 @@ function mostrarToast() {
   }
 }
 
-// Atualiza o contador de itens no ícone do carrinho
 function atualizarContadorCarrinho() {
   const contadorEl = document.getElementById('contador-carrinho');
   if (contadorEl) {
@@ -125,4 +121,3 @@ function atualizarContadorCarrinho() {
     contadorEl.textContent = `(${carrinho.length})`;
   }
 }
-atualizarContadorCarrinho();SSS

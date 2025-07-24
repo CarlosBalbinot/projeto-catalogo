@@ -1,9 +1,15 @@
-header {
-  background-color: #8cb3ec;
-}
-
 body {
   font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  color: #222;
+}
+
+/* Cards */
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .card img {
@@ -11,16 +17,32 @@ body {
   height: 300px;
 }
 
-.card {
-  border-radius: 20px;
-  overflow: hidden;
-  transition: transform 0.2s ease;
-}
-
 .card:hover {
   transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* Cabeçalho */
+header {
+  background-color: #8d906c !important;
+  color: #fff;
+}
+
+header a {
+  color: #fff;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: #f8f8f8;
+}
+
+/* Contador do carrinho */
+#contador-carrinho {
+  font-weight: bold;
+}
+
+/* Footer */
 footer {
   font-size: 0.8rem;
   color: #666;
@@ -29,4 +51,29 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
+}
+
+/* Toast personalizado */
+.toast-body {
+  font-size: 0.9rem;
+}
+
+/* Botões */
+.btn-outline-dark {
+  border-radius: 8px;
+}
+
+.btn-dark {
+  border-radius: 8px;
+}
+
+/* Responsividade de imagem de produto */
+#produto-imagem {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.bg-vaidosa {
+  background-color: #8d906c !important;
 }
