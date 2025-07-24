@@ -18,6 +18,8 @@
     <img src="img/jaguar.jpeg" id="produto-imagem" alt="Produto" class="img-fluid rounded-4 mb-3" style="max-width: 400px;">
     <h2 id="produto-nome">Tecido Jaguar</h2>
     <p id="produto-desc">Tecido com visual sofisticado e toque macio, ideal para roupas fitness de alta performance.</p>
+
+    <button class="btn btn-outline-dark me-2" onclick="adicionarAoCarrinho()">Adicionar ao carrinho</button>
     <button class="btn btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#modalOrcamento">Solicitar orçamento</button>
   </main>
 
@@ -78,6 +80,7 @@
     Desenvolvido por <a href="https://instagram.com/carlosbalbinot_" target="_blank">Carlos Balbinot</a>
   </footer>
 
+  <!-- Scripts -->
   <script>
     const tipoPessoa = document.getElementById('tipoPessoa');
     const campoCpf = document.getElementById('campoCpf');
@@ -89,6 +92,20 @@
       if (tipoPessoa.value === 'cpf') campoCpf.classList.remove('d-none');
       if (tipoPessoa.value === 'cnpj') campoCnpj.classList.remove('d-none');
     });
+
+    function adicionarAoCarrinho() {
+      const nome = document.getElementById("produto-nome").innerText;
+      const imagem = document.getElementById("produto-imagem").getAttribute("src");
+      const desc = document.getElementById("produto-desc").innerText;
+
+      const produto = { nome, imagem, desc };
+
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      carrinho.push(produto);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+      alert("Produto adicionado ao carrinho!");
+    }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
