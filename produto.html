@@ -4,17 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Produto | Vaidosa Fitness</title>
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <script src="js/script.js"></script>
 </head>
 <body>
   <!-- Cabeçalho -->
   <header class="bg-white py-3 position-relative text-center">
     <img src="img/logo.png" alt="Logo Vaidosa Fitness" height="60">
     <a href="carrinho.html" class="btn btn-outline-dark position-absolute end-0 top-50 translate-middle-y me-3">
-      🛒
+    🛒 <span id="contador-carrinho">(0)</span>
     </a>
   </header>
 
@@ -82,10 +81,17 @@
     </div>
   </div>
 
-  <!-- Rodapé -->
-  <footer class="text-center py-4 bg-light">
-    Desenvolvido por <a href="https://instagram.com/carlosbalbinot_" target="_blank">Carlos Balbinot</a>
-  </footer>
+  <!-- Toast de confirmação -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+    <div id="toast-confirma" class="toast align-items-center text-white bg-success border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body">
+          ✅ Produto adicionado ao carrinho
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="js/script.js"></script>

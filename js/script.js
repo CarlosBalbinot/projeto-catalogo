@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) Dados dos produtos
   const produtos = {
     Jaguar: {
       nome: 'Tecido Jaguar',
@@ -18,54 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // 2) Lógica da página de produto
-  const btnAdd = document.getElementById('btn-add-carrinho');
-  if (btnAdd) {
+  // === Página de Produto ===
+  if (document.getElementById('btn-add-carrinho')) {
     const params = new URLSearchParams(window.location.search);
     const chave = params.get('produto');
     const dados = produtos[chave] || produtos.Jaguar;
 
-    // Preenche infos
     document.getElementById('produto-nome').innerText = dados.nome;
     document.getElementById('produto-desc').innerText = dados.desc;
     const imgEl = document.getElementById('produto-imagem');
     imgEl.src = dados.imagem;
     imgEl.alt = dados.nome;
 
-    // Evento adicionar ao carrinho
-    btnAdd.addEventListener('click', () => adicionarAoCarrinho(dados));
+    document.getElementById('btn-add-carrinho').addEventListener('click', () => {
+      adicionarAoCarrinho(dados);
+      mostrarToast();
+    });
   }
 
-  // 3) Lógica da página de carrinho
+  // === Página de Carrinho ===
   const listaCarrinhoEl = document.getElementById('lista-carrinho');
   if (listaCarrinhoEl) {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const inputProdutosEl = document.getElementById('input-produtos');
-
-    if (carrinho.length === 0) {
-      listaCarrinhoEl.innerHTML = '<p class="text-center">Nenhum produto no carrinho.</p>';
-    } else {
-      let resumo = '';
-      carrinho.forEach((item, index) => {
-        const col = document.createElement('div');
-        col.className = 'col-md-4';
-        col.innerHTML = `
-          <div class="card h-100 rounded-4">
-            <img src="${item.imagem}" class="card-img-top" alt="${item.nome}" style="height:300px; object-fit:cover;">
-            <div class="card-body text-center">
-              <h5 class="card-title">${item.nome}</h5>
-              <p class="card-text small">${item.desc}</p>
-            </div>
-          </div>`;
-        listaCarrinhoEl.appendChild(col);
-
-        resumo += `${index + 1}. ${item.nome} - ${item.desc}\n`;
-      });
-      inputProdutosEl.value = resumo;
-    }
+    carregarCarrinho();
   }
 
-  // 4) Switch CPF/CNPJ (para modal e carrinho)
+  // === CPF/CNPJ ===
   const tipoPessoaEl = document.getElementById('tipoPessoa');
   if (tipoPessoaEl) {
     const campoCpfEl = document.getElementById('campoCpf');
@@ -79,15 +55,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Função para adicionar itens ao carrinho
+// === Funções ===
+
 function adicionarAoCarrinho(produto) {
   const item = {
     nome: produto.nome,
     imagem: produto.imagem,
     desc: produto.desc
   };
+
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   carrinho.push(item);
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
-  alert('Produto adicionado ao carrinho!');
 }
+
+function removerDoCarrinho(index) {
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  carrinho.splice(index, 1);
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  carregarCarrinho();
+}
+
+function carregarCarrinho() {
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  const lista = document.getElementById('lista-carrinho');
+  const inputProdutos = document.getElementById('input-produtos');
+
+  lista.innerHTML = '';
+
+  if (carrinho.length === 0) {
+    lista.innerHTML = '<p class="text-center">Nenhum produto no carrinho.</p>';
+    if (inputProdutos) inputProdutos.value = '';
+    return;
+  }
+
+  let resumo = '';
+  carrinho.forEach((item, index) => {
+    const col = document.createElement('div');
+    col.className = 'col-md-4';
+    col.innerHTML = `
+      <div class="card h-100 rounded-4">
+        <img src="${item.imagem}" class="card-img-top" alt="${item.nome}" style="height:300px; object-fit:cover;">
+        <div class="card-body text-center">
+          <h5 class="card-title">${item.nome}</h5>
+          <p class="card-text small">${item.desc}</p>
+          <button class="btn btn-sm btn-outline-danger" onclick="removerDoCarrinho(${index})">Remover</button>
+        </div>
+      </div>`;
+    lista.appendChild(col);
+    resumo += `${index + 1}. ${item.nome} - ${item.desc}\n`;
+  });
+
+  if (inputProdutos) inputProdutos.value = resumo;
+}
+
+function mostrarToast() {
+  const toast = document.getElementById('toast-confirma');
+  if (toast) {
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+  }
+}
+
+// Atualiza o contador de itens no ícone do carrinho
+function atualizarContadorCarrinho() {
+  const contadorEl = document.getElementById('contador-carrinho');
+  if (contadorEl) {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    contadorEl.textContent = `(${carrinho.length})`;
+  }
+}
+atualizarContadorCarrinho();SSS
