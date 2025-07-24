@@ -1,12 +1,16 @@
+/* ====== Layout base ====== */
 html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 main {
   flex: 1;
 }
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #fdfdfd;
@@ -39,11 +43,11 @@ header {
 
 header a {
   color: #fff;
+  text-decoration: none;
 }
 
 header a:hover {
   color: #f8f8f8;
-  text-decoration: none;
 }
 
 /* Botão do carrinho com destaque */
@@ -66,17 +70,16 @@ header .btn-outline-dark:hover {
 /* ====== Rodapé ====== */
 footer {
   font-size: 0.75rem;
-  color: #aaa;
-  background-color: #f9f9f9;
-  padding: 8px 0;
+  color: #888;
+  background-color: #f5f5f5;
+  padding: 10px 0;
   text-align: center;
   width: 100%;
-  margin-top: auto;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e0e0e0;
 }
 
 footer a {
-  color: inherit;
+  color: #888;
   text-decoration: none;
   font-weight: 500;
 }
@@ -91,7 +94,7 @@ footer a:hover {
   font-size: 0.9rem;
 }
 
-/* ====== Botões ====== */
+/* ====== Botões padrão ====== */
 .btn-outline-dark,
 .btn-dark {
   border-radius: 8px;
@@ -104,7 +107,7 @@ footer a:hover {
   border-radius: 20px;
 }
 
-/* Utilitário de fundo */
+/* ====== Utilitários ====== */
 .bg-vaidosa {
   background-color: #8d906c !important;
 }
