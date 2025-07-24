@@ -4,12 +4,12 @@ body {
   color: #222;
 }
 
-/* Cards */
+/* ====== Cards ====== */
 .card {
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .card img {
@@ -19,10 +19,10 @@ body {
 
 .card:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Cabeçalho */
+/* ====== Cabeçalho ====== */
 header {
   background-color: #8d906c !important;
   color: #fff;
@@ -33,8 +33,20 @@ header a {
 }
 
 header a:hover {
-  text-decoration: none;
   color: #f8f8f8;
+  text-decoration: none;
+}
+
+/* Botão do carrinho com destaque */
+header .btn-outline-dark {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  color: #000;
+}
+
+header .btn-outline-dark:hover {
+  background-color: #e9e9e9;
 }
 
 /* Contador do carrinho */
@@ -42,7 +54,7 @@ header a:hover {
   font-weight: bold;
 }
 
-/* Footer */
+/* ====== Rodapé ====== */
 footer {
   font-size: 0.8rem;
   color: #666;
@@ -53,27 +65,25 @@ footer {
   width: 100%;
 }
 
-/* Toast personalizado */
+/* ====== Toast personalizado ====== */
 .toast-body {
   font-size: 0.9rem;
 }
 
-/* Botões */
-.btn-outline-dark {
-  border-radius: 8px;
-}
-
+/* ====== Botões ====== */
+.btn-outline-dark,
 .btn-dark {
   border-radius: 8px;
 }
 
-/* Responsividade de imagem de produto */
+/* ====== Imagem de Produto ====== */
 #produto-imagem {
   max-width: 100%;
   height: auto;
   border-radius: 20px;
 }
 
+/* Utilitário de fundo */
 .bg-vaidosa {
   background-color: #8d906c !important;
 }
