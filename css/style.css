@@ -1,0 +1,22 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card img {
+  object-fit: cover;
+  height: 300px;
+}
+
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+footer {
+  font-size: 0.9rem;
+}
