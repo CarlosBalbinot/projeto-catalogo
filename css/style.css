@@ -107,6 +107,8 @@ footer a:hover {
   width: 100%;
   max-width: 400px;
   height: auto;
+  max-height: 450px;
+  object-fit: cover;
   margin: 0 auto;
   display: block;
   border-radius: 20px;
