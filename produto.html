@@ -10,23 +10,23 @@
 </head>
 <body>
   <!-- Cabeçalho -->
-  <header class="py-3 position-relative text-center" style="background-color: #8d906c;">
+  <header class="py-3 position-relative text-center" style="background-color: #8d906c; padding-right: 70px;">
     <a href="javascript:history.back()" class="position-absolute start-0 top-50 translate-middle-y ms-3 text-white fs-4 text-decoration-none">←</a>
     <a href="index.html">
       <img src="img/logo.png" alt="Logo Vaidosa Fitness" height="60">
     </a>
-    <a href="carrinho.html" class="btn btn-outline-dark position-absolute end-0 top-50 translate-middle-y me-3 shadow">
+    <a href="carrinho.html" class="btn btn-outline-dark position-absolute end-0 top-50 translate-middle-y me-3 shadow" style="z-index: 10;">
       🛒 <span id="contador-carrinho">(0)</span>
     </a>
   </header>
 
   <!-- Conteúdo do Produto -->
   <main class="container text-center my-5">
-    <img src="" id="produto-imagem" alt="Produto" class="img-fluid rounded-4 mb-3" style="max-width: 400px;">
-    <h2 id="produto-nome" class="fw-bold"></h2>
-    <p id="produto-desc"></p>
+    <img src="" id="produto-imagem" alt="Produto" class="img-fluid rounded-4 mb-3" style="max-width: 100%; height: auto;">
+    <h2 id="produto-nome" class="fw-bold fs-4"></h2>
+    <p id="produto-desc" class="px-3"></p>
 
-    <div class="d-flex justify-content-center gap-2 mt-4">
+    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-2 mt-4">
       <button class="btn btn-outline-dark" id="btn-add-carrinho">Adicionar ao carrinho</button>
       <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalOrcamento">Solicitar orçamento</button>
     </div>

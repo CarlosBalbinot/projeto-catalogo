@@ -28,6 +28,7 @@ body {
 .card img {
   object-fit: cover;
   height: 300px;
+  width: 100%;
 }
 
 .card:hover {
@@ -39,6 +40,7 @@ body {
 header {
   background-color: #8d906c !important;
   color: #fff;
+  padding-right: 70px; /* espaço para o botão do carrinho */
 }
 
 header a {
@@ -110,4 +112,23 @@ footer a:hover {
 /* ====== Utilitários ====== */
 .bg-vaidosa {
   background-color: #8d906c !important;
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 576px) {
+  .card img {
+    height: 180px;
+  }
+
+  #produto-imagem {
+    max-width: 90%;
+  }
+
+  header img {
+    height: 50px;
+  }
+
+  .d-flex.flex-md-row {
+    flex-direction: column !important;
+  }
 }
