@@ -126,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('btn-add-carrinho')) {
     const params = new URLSearchParams(window.location.search);
     const chave = params.get('produto');
-    const chave = params.get('produto');
     if (!chave || !produtos[chave]) return; // evita erro se chave inválida
 
     const dados = produtos[chave];
