@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
-  // === Página de Produto ===
+// === Página de Produto ===
 if (document.getElementById('btn-add-carrinho')) {
   const params = new URLSearchParams(window.location.search);
   const chave = params.get('produto');
@@ -135,6 +135,21 @@ if (document.getElementById('btn-add-carrinho')) {
   const imgEl = document.getElementById('produto-imagem');
   imgEl.src = dados.imagem;
   imgEl.alt = dados.nome;
+
+  const modeloEl = document.getElementById('produto-modelo');
+  if (modeloEl && dados.modelo) {
+    modeloEl.src = dados.modelo;
+    modeloEl.alt = `Modelo com ${dados.nome}`;
+    modeloEl.style.display = 'block';
+  } else if (modeloEl) {
+    modeloEl.style.display = 'none';
+  }
+
+  document.getElementById('btn-add-carrinho').addEventListener('click', () => {
+    adicionarAoCarrinho(dados);
+    mostrarToast();
+  });
+}
 
   //imagem da modelo
   const imgModeloEl = document.getElementById('produto-modelo');
