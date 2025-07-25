@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Cirre01: {
       nome: 'Tecido Cirrê - Vinho',
       imagem: 'img/tecido/cirre01.jpeg',
-      imagemModelo: 'img/modelos/Legging Vinho.png',
+      modelo: 'img/modelos/Legging Vinho.png',
       desc: 'Tecido com acabamento brilhoso e toque macio. Sua coloração em vinho metalizado garante um visual sofisticado e moderno. Ideal para peças fitness que buscam impacto visual e conforto ao mesmo tempo. Composição: 90% Poliamida, 10% Elastano.'
     },
     Cirre02: {
