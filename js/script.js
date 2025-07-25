@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Cirre01: {
       nome: 'Tecido Cirrê - Vinho',
       imagem: 'img/tecido/cirre01.jpeg',
+      imagemModelo: 'img/modelos/Legging Vinho.png',
       desc: 'Tecido com acabamento brilhoso e toque macio. Sua coloração em vinho metalizado garante um visual sofisticado e moderno. Ideal para peças fitness que buscam impacto visual e conforto ao mesmo tempo. Composição: 90% Poliamida, 10% Elastano.'
     },
     Cirre02: {
@@ -123,22 +124,30 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // === Página de Produto ===
-  if (document.getElementById('btn-add-carrinho')) {
-    const params = new URLSearchParams(window.location.search);
-    const chave = params.get('produto');
-    const dados = produtos[chave] || produtos.Jaguar;
+if (document.getElementById('btn-add-carrinho')) {
+  const params = new URLSearchParams(window.location.search);
+  const chave = params.get('produto');
+  const dados = produtos[chave] || produtos.Jaguar;
 
-    document.getElementById('produto-nome').innerText = dados.nome;
-    document.getElementById('produto-desc').innerText = dados.desc;
-    const imgEl = document.getElementById('produto-imagem');
-    imgEl.src = dados.imagem;
-    imgEl.alt = dados.nome;
+  document.getElementById('produto-nome').innerText = dados.nome;
+  document.getElementById('produto-desc').innerText = dados.desc;
 
-    document.getElementById('btn-add-carrinho').addEventListener('click', () => {
-      adicionarAoCarrinho(dados);
-      mostrarToast();
-    });
+  const imgEl = document.getElementById('produto-imagem');
+  imgEl.src = dados.imagem;
+  imgEl.alt = dados.nome;
+
+  //imagem da modelo
+  const imgModeloEl = document.getElementById('produto-modelo');
+  if (imgModeloEl) {
+    imgModeloEl.src = dados.imagemModelo || dados.imagem;
+    imgModeloEl.alt = dados.nome + ' - Modelo';
   }
+
+  document.getElementById('btn-add-carrinho').addEventListener('click', () => {
+    adicionarAoCarrinho(dados);
+    mostrarToast();
+  });
+}
 
   // === Página de Carrinho ===
   if (document.getElementById('lista-carrinho')) {
@@ -226,3 +235,18 @@ function atualizarContadorCarrinho() {
     contadorEl.textContent = `(${carrinho.length})`;
   }
 }
+
+document.querySelectorAll('.produto-img').forEach(img => {
+  const original = img.src;
+  const hover = img.dataset.hover;
+
+  if (hover) {
+    img.addEventListener('mouseenter', () => {
+      img.src = hover;
+    });
+
+    img.addEventListener('mouseleave', () => {
+      img.src = original;
+    });
+  }
+});

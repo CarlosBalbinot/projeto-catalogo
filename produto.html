@@ -20,17 +20,25 @@
     </a>
   </header>
 
-  <!-- Conteúdo do Produto -->
-  <main class="container text-center my-5">
-    <img src="" id="produto-imagem" alt="Produto" class="img-fluid rounded-4 mb-3 produto-imagem">
-    <h2 id="produto-nome" class="fw-bold fs-4"></h2>
-    <p id="produto-desc" class="px-3"></p>
+<!-- Conteúdo do Produto -->
+<main class="container text-center my-5">
 
-    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-2 mt-4">
-      <button class="btn btn-outline-dark" id="btn-add-carrinho">Adicionar ao carrinho</button>
-      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalOrcamento">Solicitar orçamento</button>
-    </div>
-  </main>
+  <!-- Imagens lado a lado -->
+  <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
+    <img src="" id="produto-imagem" alt="Produto" class="img-fluid rounded-4 mb-3" style="max-width: 400px;">
+    <img src="" id="produto-modelo" alt="Modelo" class="img-fluid rounded-4 mb-3" style="max-width: 400px;">
+  </div>
+
+  <!-- Nome e descrição -->
+  <h2 id="produto-nome" class="fw-bold fs-4 mt-4"></h2>
+  <p id="produto-desc" class="px-3"></p>
+  
+  <!-- Botões -->
+  <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-2 mt-4">
+    <button class="btn btn-outline-dark" id="btn-add-carrinho">Adicionar ao carrinho</button>
+    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalOrcamento">Solicitar orçamento</button>
+  </div>
+</main>
 
   <!-- Modal -->
   <div class="modal fade" id="modalOrcamento" tabindex="-1">
