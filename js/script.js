@@ -128,6 +128,7 @@ if (document.getElementById('btn-add-carrinho')) {
   const chave = params.get('produto');
   const dados = produtos[chave] || produtos.Jaguar;
 
+  // Preenche os dados do produto
   document.getElementById('produto-nome').innerText = dados.nome;
   document.getElementById('produto-desc').innerText = dados.desc;
 
@@ -135,32 +136,12 @@ if (document.getElementById('btn-add-carrinho')) {
   imgEl.src = dados.imagem;
   imgEl.alt = dados.nome;
 
-  const modeloEl = document.getElementById('produto-modelo');
-  if (modeloEl && dados.modelo) {
-    modeloEl.src = dados.modelo;
-    modeloEl.alt = `Modelo com ${dados.nome}`;
-    modeloEl.style.display = 'block';
-  } else if (modeloEl) {
-    modeloEl.style.display = 'none';
-  }
-
+  // Botão de adicionar ao carrinho
   document.getElementById('btn-add-carrinho').addEventListener('click', () => {
     adicionarAoCarrinho(dados);
     mostrarToast();
   });
 }
-
-  //imagem da modelo
-  const imgModeloEl = document.getElementById('produto-modelo');
-  if (imgModeloEl) {
-    imgModeloEl.src = dados.imagemModelo || dados.imagem;
-    imgModeloEl.alt = dados.nome + ' - Modelo';
-  }
-
-  document.getElementById('btn-add-carrinho').addEventListener('click', () => {
-    adicionarAoCarrinho(dados);
-    mostrarToast();
-  });
 
 
   // === Página de Carrinho ===
