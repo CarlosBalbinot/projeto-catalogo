@@ -162,7 +162,7 @@ if (document.getElementById('btn-add-carrinho')) {
     adicionarAoCarrinho(dados);
     mostrarToast();
   });
-}
+
 
   // === Página de Carrinho ===
   if (document.getElementById('lista-carrinho')) {
