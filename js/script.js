@@ -122,27 +122,31 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
-// === Página de Produto ===
-if (document.getElementById('btn-add-carrinho')) {
-  const params = new URLSearchParams(window.location.search);
-  const chave = params.get('produto');
-  const dados = produtos[chave] || produtos.Jaguar;
+  // === Página de Produto ===
+  if (document.getElementById('btn-add-carrinho')) {
+    const params = new URLSearchParams(window.location.search);
+    const chave = params.get('produto');
+    const chave = params.get('produto');
+    if (!chave || !produtos[chave]) return; // evita erro se chave inválida
 
-  // Preenche os dados do produto
-  document.getElementById('produto-nome').innerText = dados.nome;
-  document.getElementById('produto-desc').innerText = dados.desc;
+    const dados = produtos[chave];
 
-  const imgEl = document.getElementById('produto-imagem');
-  imgEl.src = dados.imagem;
-  imgEl.alt = dados.nome;
 
-  // Botão de adicionar ao carrinho
-  document.getElementById('btn-add-carrinho').addEventListener('click', () => {
-    adicionarAoCarrinho(dados);
-    mostrarToast();
-  });
-}
 
+    // Preenche os dados do produto
+    document.getElementById('produto-nome').innerText = dados.nome;
+    document.getElementById('produto-desc').innerText = dados.desc;
+
+    const imgEl = document.getElementById('produto-imagem');
+    imgEl.src = dados.imagem;
+    imgEl.alt = dados.nome;
+
+    // Botão de adicionar ao carrinho
+    document.getElementById('btn-add-carrinho').addEventListener('click', () => {
+      adicionarAoCarrinho(dados);
+      mostrarToast();
+    });
+  }
 
   // === Página de Carrinho ===
   if (document.getElementById('lista-carrinho')) {
