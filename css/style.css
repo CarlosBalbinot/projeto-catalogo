@@ -107,16 +107,16 @@ footer a:hover {
   width: 100%;
   max-width: 400px;
   height: auto;
-  max-height: 320px;
   object-fit: cover;
+  border-radius: 20px;
   margin: 0 auto;
   display: block;
-  border-radius: 20px;
 }
 
-@media (max-width: 768px) {
+/* Limita altura no desktop */
+@media (min-width: 768px) {
   .produto-imagem {
-    max-height: 250px;
+    max-height: 320px;
   }
 }
 
