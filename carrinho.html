@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carrinho | Vaidosa Fitness</title>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
   <!-- Cabeçalho -->
   <header class="py-3 position-relative text-center" style="background-color: #8d906c;">
-    <a href="javascript:history.back()" class="position-absolute start-0 top-50 translate-middle-y ms-3 text-dark fs-4 text-decoration-none">←</a>
+    <a href="javascript:history.back()"
+      class="position-absolute start-0 top-50 translate-middle-y ms-3 text-dark fs-4 text-decoration-none">←</a>
     <a href="index.html">
       <img src="img/logo.png" alt="Logo Vaidosa Fitness" height="60">
     </a>
@@ -25,12 +28,15 @@
     <h2 class="mb-4 text-center">Produtos selecionados</h2>
     <div id="lista-carrinho" class="row g-4"></div>
 
-    <hr class="my-5"/>
+    <hr class="my-5" />
 
     <h4 class="text-center mb-4">Solicitar orçamento</h4>
-    <form id="form-orcamento" action="https://formsubmit.co/vaidosa.fitness@gmail.com" method="POST">
+    <form id="form-orcamento" action="https://formsubmit.co/0ba22b63d8cf4a36a5b06942f5b749c1" method="POST">
       <input type="hidden" name="_subject" value="Solicitação de orçamento com carrinho">
       <input type="hidden" name="produtos" id="input-produtos">
+
+      <!-- Redirecionamento após envio -->
+      <input type="hidden" name="_next" value="https://carlosbalbinot.github.io/">
 
       <div class="row mb-3">
         <div class="col-md-6">
@@ -70,7 +76,8 @@
 
       <div class="mb-3">
         <label class="form-label">Mensagem ou observações</label>
-        <textarea name="descricao" class="form-control" rows="3" placeholder="Ex: Quantidades, tamanhos, cores..."></textarea>
+        <textarea name="descricao" class="form-control" rows="3"
+          placeholder="Ex: Quantidades, tamanhos, cores..."></textarea>
       </div>
 
       <div class="text-center">
@@ -88,4 +95,5 @@
   <script src="js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
